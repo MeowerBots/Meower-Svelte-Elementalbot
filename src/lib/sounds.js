@@ -3,6 +3,17 @@ function notification() {
     audio.play();
 }
 
+function bg_music() {
+    var audio = new Audio('../src/assets/theme.mp3');
+    audio.loop = true
+    audio.play();
+}
+
 export function playNotification() {
-    notification();
+    //notification();
+    return
+}
+
+export function playBG() {
+    bg_music();
 }

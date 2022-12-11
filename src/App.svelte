@@ -120,6 +120,8 @@
 
 	{#if $screen === "setup"}
 		<Setup />
+	{:else if $screen === "start_s"}
+		<button on:click={() => screen.set("setup")} class="fullcenter">Idk if this is needed but click me</button>
 	{:else}
 		<Main />
 	{/if}
@@ -132,6 +134,20 @@
 </main>
 
 <style>
+	.fullcenter {
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		width: 100vw;
+		height: 100vh;
+
+		position: fixed;
+		top: 0;
+		left: 0;
+	}
+
 	.spinner-container {
 		position: fixed;
 		right: 27px;

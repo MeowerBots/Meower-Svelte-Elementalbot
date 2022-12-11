@@ -20,6 +20,7 @@
 	import {tick, onMount} from "svelte";
 	import {fade} from 'svelte/transition';
 	import sleep from "../lib/sleep.js";
+	import * as sounds from "../lib/sounds";
 
 	let logo, setup, logoImg, loginStatus = "";
 
@@ -119,6 +120,7 @@
 					}));
 					auth_header.set({username: val.payload.username, token: val.payload.token});
 
+					sounds.playBG()
 					if (rememberMe || localStorage.getItem("meower_savedusername") === username) {
 						localStorage.setItem("meower_savedusername", username);
 						localStorage.setItem("meower_savedpassword", val.payload.token);
@@ -310,6 +312,7 @@
 								localStorage.setItem("meower_savedpassword", val.payload.token);
 							}
 
+							sounds.playBG()
 							page.set("go");
 							await sleep(1000);
 							screen.set("main");
